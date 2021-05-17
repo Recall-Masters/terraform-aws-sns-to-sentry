@@ -4,7 +4,7 @@
 Terraform module which constructs:
 
 - SNS topic for incoming events;
-- Lambda function which send messages to sentry by DNS;
+- Lambda function which send messages to sentry by DSN;
 - Event source mapping to trigger the provided Lambda from the aforementioned topic;
 
 ## Usage
