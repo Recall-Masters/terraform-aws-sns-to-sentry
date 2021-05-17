@@ -10,13 +10,13 @@ Terraform module which constructs:
 ## Usage
 
 ```hcl
-module trigger-my-lambda-from-s3 {
+module sentry-budget-notification {
   source = "Recall-Masters/terraform-aws-sns-to-sentry/aws"
   version = "0.0.1"
 
-  name = "${local.prefix}-my-topic-incoming-notifications"
+  name = "${local.prefix}-incoming-budget-notifications"
   sentry_dsn = "https://public@sentry.example.com/1"
-  message = "Example message which will be sended to sentry."
+  message = "Budget limit has exceeded."
 }
 ```
 
