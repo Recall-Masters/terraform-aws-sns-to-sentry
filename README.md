@@ -22,4 +22,5 @@ module sentry-budget-notification {
 
 ## Outputs
 
-- `module.terraform-aws-sns-to-sentry.topic.id` is the ARN of the topic that will trigger the Lambda,
+- `module.terraform-aws-sns-to-sentry.sns_topic.id` is the ARN of the topic that will trigger the Lambda
+- `module.terraform-aws-sns-to-sentry.iam_policy.arn` is the ARN of the iam pollicy that have publish access to topic
