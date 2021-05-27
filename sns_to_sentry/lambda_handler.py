@@ -18,6 +18,6 @@ logger = logging.getLogger(__name__)
 def sns_to_sentry(event: SNSEvent, context):
     """Handle event from SNS and send it to Sentry."""   # noqa: DAR101
     for record in event.records:
-        logger.error(os.environ['MESSAGE'], {
+        logger.error(os.environ['MESSAGE'], extra={
             'event': record.sns.message,
         })
