@@ -10,6 +10,7 @@ from sns_to_sentry.models import SNSEvent
 init(
     dsn=os.environ["SENTRY_DSN"],
     integrations=[AwsLambdaIntegration()],
+    environment=os.environ["ENV"],
 )
 logger = logging.getLogger(__name__)
 

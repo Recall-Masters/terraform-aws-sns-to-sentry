@@ -21,6 +21,7 @@ resource "aws_lambda_function" "sns_to_sentry" {
     variables = {
       MESSAGE    = var.message
       SENTRY_DSN = var.sentry_dsn
+      ENV        = var.environment
     }
   }
 
