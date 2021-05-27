@@ -1,13 +1,6 @@
-data "archive_file" "lambda_zip_dir" {
-  type        = "zip"
-  output_path = "/tmp/build.zip"
-	source_dir  = "src"
-}
-
-
 resource "aws_lambda_function" "sns_to_sentry" {
   function_name = "${var.name}-sns-to-sentry"
-  handler       = "lambda_handler.handler"
+  handler       = "sns_to_sentry.lambda_handler.handler"
   role          = aws_iam_role.sns_to_sentry.arn
   runtime       = "python3.7"
 
@@ -16,8 +9,9 @@ resource "aws_lambda_function" "sns_to_sentry" {
 
   reserved_concurrent_executions = 10
 
-  filename = "${data.archive_file.lambda_zip_dir.output_path}"
-  source_code_hash = data.archive_file.lambda_zip_dir.output_base64sha256
+  filename = "build.zip"
+  source_code_hash = filebase64sha256("build.zip")
+
   environment {
     variables = {
       MESSAGE    = var.message

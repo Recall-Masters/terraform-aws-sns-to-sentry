@@ -24,6 +24,9 @@ build:
 	poetry export -f requirements.txt --without-hashes | pip install -r /dev/stdin -t build/
 	cp -rf ${DIR} build/
 
+	rm -f build.zip
+	cd build/ && zip -r ../build.zip *
+
 
 .ONESHELL:
 .SHELLFLAGS = -ce
