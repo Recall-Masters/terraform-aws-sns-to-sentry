@@ -14,7 +14,7 @@ resource "aws_lambda_function" "sns_to_sentry" {
 
   reserved_concurrent_executions = 10
 
-  filename = local.deployment_archive_path
+  filename         = local.deployment_archive_path
   source_code_hash = filebase64sha256(local.deployment_archive_path)
 
   environment {

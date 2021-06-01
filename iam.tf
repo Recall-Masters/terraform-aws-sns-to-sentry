@@ -42,3 +42,21 @@ resource "aws_iam_policy" "publish_to_sns" {
 }
 EOF
 }
+
+
+resource "aws_sns_topic_policy" "this" {
+  arn    = aws_sns_topic.this.arn
+  policy = data.aws_iam_policy_document.alarm-to-sns.json
+}
+
+data "aws_iam_policy_document" "alarm-to-sns" {
+  statement {
+    actions = ["sns:Publish"]
+    effect  = "Allow"
+    principals {
+      type        = "Service"
+      identifiers = ["cloudwatch.amazonaws.com"]
+    }
+    resources = [aws_sns_topic.this.arn]
+  }
+}
