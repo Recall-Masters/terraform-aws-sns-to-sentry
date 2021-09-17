@@ -17,6 +17,7 @@ module sentry-budget-notification {
   name = "${local.prefix}-incoming-budget-notifications"
   sentry_dsn = "https://public@sentry.example.com/1"
   message = "Budget limit has exceeded."
+  environment = "dev"
 }
 ```
 
