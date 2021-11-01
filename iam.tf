@@ -55,7 +55,7 @@ data "aws_iam_policy_document" "alarm-to-sns" {
     effect  = "Allow"
     principals {
       type        = "Service"
-      identifiers = ["cloudwatch.amazonaws.com"]
+      identifiers = [var.aws_principal]
     }
     resources = [aws_sns_topic.this.arn]
   }

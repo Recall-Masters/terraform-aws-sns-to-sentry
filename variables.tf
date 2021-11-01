@@ -18,3 +18,7 @@ variable "tags" {
 variable "environment" {
   description = "AWS environment we work at: dev, staging, or production."
 }
+
+variable "aws_principal" {
+  descriptions = "AWS Service principal from which sns will recieve notifications"
+}
