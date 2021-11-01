@@ -20,5 +20,5 @@ variable "environment" {
 }
 
 variable "aws_principal" {
-  descriptions = "AWS Service principal from which sns will recieve notifications"
+  description = "AWS Service principal from which sns will recieve notifications"
 }

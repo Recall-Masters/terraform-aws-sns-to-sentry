@@ -12,7 +12,7 @@ Terraform module which constructs:
 ```hcl
 module sentry-budget-notification {
   source = "Recall-Masters/sns-to-sentry/aws"
-  version = "0.0.4"
+  version = "0.0.6"
 
   name = "${local.prefix}-incoming-budget-notifications"
   sentry_dsn = "https://public@sentry.example.com/1"
