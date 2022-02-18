@@ -12,13 +12,14 @@ Terraform module which constructs:
 ```hcl
 module sentry-budget-notification {
   source = "Recall-Masters/sns-to-sentry/aws"
-  version = "0.0.6"
+  version = "0.0.7"
 
-  name = "${local.prefix}-incoming-budget-notifications"
-  sentry_dsn = "https://public@sentry.example.com/1"
-  message = "Budget limit has exceeded."
-  environment = "dev"
-  aws_principal = "budgets.amazonaws.com"  ## principal set in sns topic policy, from which sns will recieve notifications.
+  name          = "${local.prefix}-incoming-budget-notifications"
+  sentry_dsn    = "https://public@sentry.example.com/1"
+  message       = "Budget limit has exceeded."
+  environment   = "dev"
+  aws_principal = "budgets.amazonaws.com"  ## principal set in sns topic policy, from which sns will receive notifications.
+  kms_key_arn   = aws_kms_key.example.arn  ## kms key should be created in project where module added
 }
 ```
 

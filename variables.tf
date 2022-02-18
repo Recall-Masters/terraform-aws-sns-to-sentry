@@ -20,5 +20,10 @@ variable "environment" {
 }
 
 variable "aws_principal" {
+  default     = "cloudwatch.amazonaws.com"
   description = "AWS Service principal from which sns will recieve notifications"
+}
+
+variable "kms_key_arn" {
+  description = "SNS topic KMS encryption key arn"
 }
